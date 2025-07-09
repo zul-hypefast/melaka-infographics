@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jira & Bitbucket Integration Workflow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .chart-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 350px;
+        max-height: 400px;
+      }
+      @media (max-width: 768px) {
+        .chart-container {
+          height: 300px;
+        }
+      }
+      .flow-step {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+      .flow-icon {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-right: 1.5rem;
+      }
+      .flow-content {
+        flex-grow: 1;
+      }
+      .flow-arrow {
+        text-align: center;
+        font-size: 2rem;
+        margin: -1rem 0;
+        color: #4a5568;
+      }
+      .kpi-card {
+        background-color: #ffffff;
+        border-radius: 0.75rem;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+      .kpi-card:hover {
+        transform: translateY(-5px);
+      }
+      .kpi-number {
+        font-size: 4rem;
+        font-weight: 900;
+      }
+      .kpi-label {
+        font-size: 1.25rem;
+        color: #4a5568;
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto p-4 md:p-8">
+      <header class="text-center mt-20 mb-12">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-[#0052CC] mb-2">
+          Streamlining Development with Jira & Bitbucket
+        </h1>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          A visual guide to the standardized workflow for enhanced visibility
+          and efficient release tracking.
+        </p>
+      </header>
+
+      <main>
+        <section id="problem" class="mb-16">
+          <h2 class="text-3xl font-bold text-center mb-8 text-[#172B4D]">
+            The Challenge: Overcoming Workflow Ambiguity
+          </h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div
+              class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#FF5630]"
+            >
+              <h3 class="font-bold text-xl mb-2">Poor Subtask Visibility</h3>
+              <p class="text-gray-600">
+                It's difficult to track the real-time progress of individual
+                subtasks. The connection between a specific piece of work and
+                its corresponding code is often unclear until a large PR is
+                created.
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#FFAB00]"
+            >
+              <h3 class="font-bold text-xl mb-2">Manual Deployment Tracking</h3>
+              <p class="text-gray-600">
+                Compiling an accurate list of what Stories and Tasks are
+                included in a deployment is a time-consuming manual process,
+                prone to error and lacking automation.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="solution" class="mb-16">
+          <h2 class="text-3xl font-bold text-center mb-10 text-[#172B4D]">
+            The Solution: A 3-Step Integrated Workflow
+          </h2>
+
+          <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
+            <div class="flow-step">
+              <div class="flow-icon bg-[#DEEBFF] text-[#0052CC]">1</div>
+              <div class="flow-content">
+                <h3 class="text-2xl font-bold mb-2">
+                  Branching: Focus on Subtasks
+                </h3>
+                <p class="text-gray-700">
+                  All work begins by branching from a specific Subtask. This
+                  creates a direct, traceable link between the Jira ticket and
+                  the codebase from the very start.
+                </p>
+                <div
+                  class="mt-4 p-3 bg-gray-100 rounded-lg text-sm font-mono text-gray-800"
+                >
+                  <span class="text-purple-600">Branch Name:</span>
+                  <span class="text-green-700">PROJ-1235</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+              <div class="flow-icon bg-[#E6FCFF] text-[#00A3BF]">2</div>
+              <div class="flow-content">
+                <h3 class="text-2xl font-bold mb-2">
+                  Pull Request: Link to the Parent Story
+                </h3>
+                <p class="text-gray-700">
+                  When the Subtask is complete, the Pull Request title must
+                  reference the parent Story or Task. This aggregates all
+                  related work under the main ticket for high-level tracking.
+                </p>
+                <div
+                  class="mt-4 p-3 bg-gray-100 rounded-lg text-sm font-mono text-gray-800"
+                >
+                  <span class="text-purple-600">PR Title:</span> [<span
+                    class="text-red-600"
+                    >PROJ-1230</span
+                  >] Implement user authentication
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+              <div class="flow-icon bg-[#DFFCF0] text-[#00875A]">3</div>
+              <div class="flow-content">
+                <h3 class="text-2xl font-bold mb-2">
+                  Merging: Standardize Commit Messages
+                </h3>
+                <p class="text-gray-700">
+                  Using the PR title as the merge commit message creates a
+                  clean, readable, and parseable git history. This simplifies
+                  generating release notes and deployment change lists.
+                </p>
+                <div
+                  class="mt-4 p-3 bg-gray-100 rounded-lg text-sm font-mono text-gray-800"
+                >
+                  <span class="text-purple-600">Merge Commit:</span> [<span
+                    class="text-red-600"
+                    >PROJ-1230</span
+                  >] Implement user authentication
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="kpis" class="mb-16">
+          <h2 class="text-3xl font-bold text-center mb-8 text-[#172B4D]">
+            Key Principles
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="kpi-card">
+              <div class="kpi-number text-[#0052CC]">1</div>
+              <div class="kpi-label">Branch per Subtask</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-number text-[#00A3BF]">1</div>
+              <div class="kpi-label">PR per Subtask</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-number text-[#00875A]">∞</div>
+              <div class="kpi-label">PRs per Story</div>
+            </div>
+          </div>
+          <p class="text-center mt-6 text-gray-600 max-w-2xl mx-auto">
+            This structure ensures that work is modular and reviewable at the
+            Subtask level, while release readiness is tracked at the Story
+            level.
+          </p>
+        </section>
+
+        <section id="benefits" class="mb-16">
+          <h2 class="text-3xl font-bold text-center mb-8 text-[#172B4D]">
+            Achieved Goals & Benefits
+          </h2>
+          <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="font-bold text-xl mb-2 text-[#0052CC]">
+                Enhanced Visibility
+              </h3>
+              <p class="text-gray-600">
+                Any team member can instantly see the status of any Subtask by
+                looking at its development panel in Jira. No more asking "what's
+                the status of this ticket?".
+              </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="font-bold text-xl mb-2 text-[#00875A]">
+                Automated Deployment Tracking
+              </h3>
+              <p class="text-gray-600">
+                Jira's deployment panel automatically populates with Stories and
+                Tasks included in a release, providing an accurate, real-time
+                view of what's shipping.
+              </p>
+            </div>
+            <div class="md:col-span-2 bg-white p-6 rounded-lg shadow-md">
+              <h3 class="font-bold text-xl mb-2 text-center text-[#172B4D]">
+                Workflow Traceability Visualization
+              </h3>
+              <p class="text-center text-gray-600 mb-4">
+                The new workflow creates a clear, hierarchical link from the
+                highest-level task down to the individual branch.
+              </p>
+              <div class="chart-container">
+                <canvas id="workflowChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="text-center text-gray-500 text-sm mt-12">
+        <p>
+          This infographic illustrates the standards proposed in the RFC for
+          Jira & Bitbucket Integration.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      function wrapText(str, maxWidth) {
+        if (str.length <= maxWidth) {
+          return str;
+        }
+        const words = str.split(" ");
+        let lines = [];
+        let currentLine = words[0];
+
+        for (let i = 1; i < words.length; i++) {
+          if (currentLine.length + words[i].length + 1 < maxWidth) {
+            currentLine += " " + words[i];
+          } else {
+            lines.push(currentLine);
+            currentLine = words[i];
+          }
+        }
+        lines.push(currentLine);
+        return lines;
+      }
+
+      const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        return Array.isArray(label) ? label.join(" ") : label;
+      };
+
+      const ctx = document.getElementById("workflowChart").getContext("2d");
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: [
+            "Jira Story (PROJ-1230)",
+            "Jira Subtask (PROJ-1235)",
+            "Bitbucket Branch",
+            "Bitbucket Pull Request",
+            "Bitbucket Merge Commit",
+          ].map((label) => wrapText(label, 16)),
+          datasets: [
+            {
+              label: "Workflow Stages",
+              data: [5, 4, 3, 2, 1],
+              backgroundColor: [
+                "#0052CC",
+                "#00A3BF",
+                "#2684FF",
+                "#5243AA",
+                "#00875A",
+              ],
+              borderColor: [
+                "#0052CC",
+                "#00A3BF",
+                "#2684FF",
+                "#5243AA",
+                "#00875A",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          indexAxis: "y",
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              callbacks: {
+                title: tooltipTitleCallback,
+              },
+            },
+          },
+          scales: {
+            x: {
+              display: false,
+            },
+            y: {
+              beginAtZero: true,
+              ticks: {
+                font: {
+                  size: 14,
+                },
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
