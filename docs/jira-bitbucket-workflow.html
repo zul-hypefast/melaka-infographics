@@ -16,73 +16,95 @@
       body {
         font-family: "Inter", sans-serif;
       }
-      .chart-container {
-        position: relative;
-        width: 100%;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 350px;
-        max-height: 400px;
-      }
-      @media (max-width: 768px) {
-        .chart-container {
-          height: 300px;
-        }
-      }
-      .flow-step {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.5rem;
-      }
-      .flow-icon {
-        flex-shrink: 0;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-right: 1.5rem;
-      }
-      .flow-content {
-        flex-grow: 1;
-      }
-      .flow-arrow {
-        text-align: center;
-        font-size: 2rem;
-        margin: -1rem 0;
-        color: #4a5568;
-      }
-      .kpi-card {
-        background-color: #ffffff;
-        border-radius: 0.75rem;
-        padding: 2rem;
-        text-align: center;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s ease;
-      }
-      .kpi-card:hover {
-        transform: translateY(-5px);
-      }
-      .kpi-number {
-        font-size: 4rem;
-        font-weight: 900;
-      }
-      .kpi-label {
-        font-size: 1.25rem;
-        color: #4a5568;
-        margin-top: 0.5rem;
-      }
     </style>
   </head>
   <body class="bg-gray-50 text-gray-800">
     <div class="container mx-auto p-4 md:p-8">
       <header class="text-center mt-20 mb-12">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-[#0052CC] mb-2">
+        <div class="flex justify-center items-center gap-4 mb-6">
+          <!-- Jira -->
+          <svg
+            class="size-16"
+            viewBox="0 0 256 256"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            preserveAspectRatio="xMidYMid"
+          >
+            <defs>
+              <linearGradient
+                x1="98.0308675%"
+                y1="0.160599572%"
+                x2="58.8877062%"
+                y2="40.7655246%"
+                id="linearGradient-1"
+              >
+                <stop stop-color="#0052CC" offset="18%"></stop>
+                <stop stop-color="#2684FF" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient
+                x1="100.665247%"
+                y1="0.45503212%"
+                x2="55.4018095%"
+                y2="44.7269807%"
+                id="linearGradient-2"
+              >
+                <stop stop-color="#0052CC" offset="18%"></stop>
+                <stop stop-color="#2684FF" offset="100%"></stop>
+              </linearGradient>
+            </defs>
+            <g>
+              <path
+                d="M244.657778,0 L121.706667,0 C121.706667,14.7201046 127.554205,28.837312 137.962891,39.2459977 C148.371577,49.6546835 162.488784,55.5022222 177.208889,55.5022222 L199.857778,55.5022222 L199.857778,77.3688889 C199.877391,107.994155 224.699178,132.815943 255.324444,132.835556 L255.324444,10.6666667 C255.324444,4.77562934 250.548815,3.60722001e-16 244.657778,0 Z"
+                fill="#2684FF"
+              ></path>
+              <path
+                d="M183.822222,61.2622222 L60.8711111,61.2622222 C60.8907238,91.8874888 85.7125112,116.709276 116.337778,116.728889 L138.986667,116.728889 L138.986667,138.666667 C139.025905,169.291923 163.863607,194.097803 194.488889,194.097778 L194.488889,71.9288889 C194.488889,66.0378516 189.71326,61.2622222 183.822222,61.2622222 Z"
+                fill="url(#linearGradient-1)"
+              ></path>
+              <path
+                d="M122.951111,122.488889 L0,122.488889 C3.75391362e-15,153.14192 24.8491913,177.991111 55.5022222,177.991111 L78.2222222,177.991111 L78.2222222,199.857778 C78.241767,230.45532 103.020285,255.265647 133.617778,255.324444 L133.617778,133.155556 C133.617778,127.264518 128.842148,122.488889 122.951111,122.488889 Z"
+                fill="url(#linearGradient-2)"
+              ></path>
+            </g>
+          </svg>
+          <span class="text-6xl text-gray-300">×</span>
+          <!-- Bitbucket -->
+          <svg
+            class="size-20"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.9087 3.00008C2.64368 2.99655 2.3907 3.11422 2.21764 3.32152C2.04458 3.52883 1.96915 3.80455 2.01158 4.07472L5.81987 27.9484C5.91782 28.5515 6.42093 28.9949 7.01305 28.9999H25.283C25.7274 29.0058 26.109 28.6748 26.1801 28.2217L29.9884 4.07935C30.0309 3.80918 29.9554 3.53346 29.7824 3.32615C29.6093 3.11885 29.3563 3.00118 29.0913 3.00471L2.9087 3.00008ZM18.9448 20.2546H13.1135L11.5346 11.7362H20.3578L18.9448 20.2546Z"
+              fill="#2684FF"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M28.7778 11.7363H20.3582L18.9453 20.2547H13.114L6.22852 28.6944C6.44675 28.8892 6.725 28.9976 7.0135 29.0001H25.2879C25.7324 29.006 26.114 28.675 26.1851 28.2219L28.7778 11.7363Z"
+              fill="url(#paint0_linear_87_7932)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_87_7932"
+                x1="30.7245"
+                y1="14.1218"
+                x2="20.5764"
+                y2="28.0753"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0.18" stop-color="#0052CC" />
+                <stop offset="1" stop-color="#2684FF" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-[#0052CC] max-w-3xl mb-2 mx-auto"
+        >
           Streamlining Development with Jira & Bitbucket
         </h1>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -127,19 +149,23 @@
           </h2>
 
           <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
-            <div class="flow-step">
-              <div class="flow-icon bg-[#DEEBFF] text-[#0052CC]">1</div>
-              <div class="flow-content">
-                <h3 class="text-2xl font-bold mb-2">
+            <div class="flex flex-col md:flex-row items-center gap-6 mb-2">
+              <div
+                class="flex-shrink-0 w-[60px] h-[60px] rounded-full flex items-center justify-center text-xl font-bold bg-[#DEEBFF] text-[#0052CC]"
+              >
+                1
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-2xl text-center md:text-left font-bold mb-2">
                   Branching: Focus on Subtasks
                 </h3>
-                <p class="text-gray-700">
+                <p class="text-gray-700 text-center md:text-left">
                   All work begins by branching from a specific Subtask. This
                   creates a direct, traceable link between the Jira ticket and
                   the codebase from the very start.
                 </p>
                 <div
-                  class="mt-4 p-3 bg-gray-100 rounded-lg text-sm font-mono text-gray-800"
+                  class="mt-4 mx-auto p-3 bg-gray-100 rounded-lg text-sm font-mono text-gray-800"
                 >
                   <span class="text-purple-600">Branch Name:</span>
                   <span class="text-green-700">PROJ-1235</span>
@@ -147,21 +173,25 @@
               </div>
             </div>
 
-            <div class="flow-arrow">↓</div>
+            <div class="text-center text-3xl text-gray-600 mb-2">↓</div>
 
-            <div class="flow-step">
-              <div class="flow-icon bg-[#E6FCFF] text-[#00A3BF]">2</div>
-              <div class="flow-content">
-                <h3 class="text-2xl font-bold mb-2">
+            <div class="flex flex-col md:flex-row items-center gap-6 mb-2">
+              <div
+                class="flex-shrink-0 w-[60px] h-[60px] rounded-full flex items-center justify-center text-xl font-bold bg-[#E6FCFF] text-[#00A3BF]"
+              >
+                2
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-2xl text-center md:text-left font-bold mb-2">
                   Pull Request: Link to the Parent Story
                 </h3>
-                <p class="text-gray-700">
+                <p class="text-gray-700 text-center md:text-left">
                   When the Subtask is complete, the Pull Request title must
                   reference the parent Story or Task. This aggregates all
                   related work under the main ticket for high-level tracking.
                 </p>
                 <div
-                  class="mt-4 p-3 bg-gray-100 rounded-lg text-sm font-mono text-gray-800"
+                  class="mt-4 mx-auto p-3 bg-gray-100 rounded-lg text-sm font-mono text-gray-800"
                 >
                   <span class="text-purple-600">PR Title:</span> [<span
                     class="text-red-600"
@@ -171,21 +201,25 @@
               </div>
             </div>
 
-            <div class="flow-arrow">↓</div>
+            <div class="text-center text-3xl text-gray-600 mb-2">↓</div>
 
-            <div class="flow-step">
-              <div class="flow-icon bg-[#DFFCF0] text-[#00875A]">3</div>
-              <div class="flow-content">
-                <h3 class="text-2xl font-bold mb-2">
+            <div class="flex flex-col md:flex-row items-center gap-6 mb-6">
+              <div
+                class="flex-shrink-0 w-[60px] h-[60px] rounded-full flex items-center justify-center text-xl font-bold bg-[#DFFCF0] text-[#00875A]"
+              >
+                3
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-2xl text-center md:text-left font-bold mb-2">
                   Merging: Standardize Commit Messages
                 </h3>
-                <p class="text-gray-700">
+                <p class="text-gray-700 text-center md:text-left">
                   Using the PR title as the merge commit message creates a
                   clean, readable, and parseable git history. This simplifies
                   generating release notes and deployment change lists.
                 </p>
                 <div
-                  class="mt-4 p-3 bg-gray-100 rounded-lg text-sm font-mono text-gray-800"
+                  class="mt-4 mx-auto p-3 bg-gray-100 rounded-lg text-sm font-mono text-gray-800"
                 >
                   <span class="text-purple-600">Merge Commit:</span> [<span
                     class="text-red-600"
@@ -202,17 +236,23 @@
             Key Principles
           </h2>
           <div class="grid md:grid-cols-3 gap-8">
-            <div class="kpi-card">
-              <div class="kpi-number text-[#0052CC]">1</div>
-              <div class="kpi-label">Branch per Subtask</div>
+            <div
+              class="bg-white rounded-lg p-8 text-center shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-1"
+            >
+              <div class="text-6xl font-black text-[#0052CC]">1</div>
+              <div class="text-xl text-gray-600 mt-2">Branch per Subtask</div>
             </div>
-            <div class="kpi-card">
-              <div class="kpi-number text-[#00A3BF]">1</div>
-              <div class="kpi-label">PR per Subtask</div>
+            <div
+              class="bg-white rounded-lg p-8 text-center shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-1"
+            >
+              <div class="text-6xl font-black text-[#00A3BF]">1</div>
+              <div class="text-xl text-gray-600 mt-2">PR per Subtask</div>
             </div>
-            <div class="kpi-card">
-              <div class="kpi-number text-[#00875A]">∞</div>
-              <div class="kpi-label">PRs per Story</div>
+            <div
+              class="bg-white rounded-lg p-8 text-center shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-1"
+            >
+              <div class="text-6xl font-black text-[#00875A]">∞</div>
+              <div class="text-xl text-gray-600 mt-2">PRs per Story</div>
             </div>
           </div>
           <p class="text-center mt-6 text-gray-600 max-w-2xl mx-auto">
@@ -228,20 +268,20 @@
           </h2>
           <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
             <div class="bg-white p-6 rounded-lg shadow-md">
-              <h3 class="font-bold text-xl mb-2 text-[#0052CC]">
+              <h3 class="font-bold text-xl text-center md:text-left mb-2 text-[#0052CC]">
                 Enhanced Visibility
               </h3>
-              <p class="text-gray-600">
+              <p class="text-gray-600 text-center md:text-left">
                 Any team member can instantly see the status of any Subtask by
                 looking at its development panel in Jira. No more asking "what's
                 the status of this ticket?".
               </p>
             </div>
             <div class="bg-white p-6 rounded-lg shadow-md">
-              <h3 class="font-bold text-xl mb-2 text-[#00875A]">
+              <h3 class="font-bold text-xl text-center md:text-left mb-2 text-[#00875A]">
                 Automated Deployment Tracking
               </h3>
-              <p class="text-gray-600">
+              <p class="text-gray-600 text-center md:text-left">
                 Jira's deployment panel automatically populates with Stories and
                 Tasks included in a release, providing an accurate, real-time
                 view of what's shipping.
@@ -255,7 +295,9 @@
                 The new workflow creates a clear, hierarchical link from the
                 highest-level task down to the individual branch.
               </p>
-              <div class="chart-container">
+              <div
+                class="relative w-full max-w-[600px] mx-auto h-[300px] md:h-[350px] max-h-[400px]"
+              >
                 <canvas id="workflowChart"></canvas>
               </div>
             </div>
